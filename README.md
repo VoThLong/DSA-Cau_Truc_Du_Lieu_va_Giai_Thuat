@@ -38,3 +38,9 @@ g++ your_file.cpp -o output_file
 # Chạy tệp đã biên dịch
 ./output_file
 ```
+
+---
+
+## Lưu ý
+
+**Nội dung vẫn còn trong quá trình cập nhật và bổ sung.**
