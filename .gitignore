@@ -1,3 +1,6 @@
 *.exe
 *.out
-Bai_4_2_Sap_Xep_Nang_Cao/Quick_Sort_Gemini
+
+# Ignore executables on Linux (files with no extension)
+*
+!*.*
