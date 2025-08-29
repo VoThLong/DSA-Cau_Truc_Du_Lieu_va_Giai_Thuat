@@ -4,3 +4,5 @@
 # Ignore executables on Linux (files with no extension)
 *
 !*.*
+!*/
+.venv/
