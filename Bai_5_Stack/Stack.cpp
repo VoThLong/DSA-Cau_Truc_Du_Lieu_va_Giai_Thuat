@@ -1,4 +1,5 @@
 #include "Stack.h"
+
 #include <iostream>
 using namespace std;
 
@@ -34,3 +35,30 @@ bool Stack<T>::isFull()
     }
 }
 
+template  <class T>
+void Stack<T>::push(T value)
+{
+    this->arr[++TopIndex] = value;
+}
+
+template <class T>
+void Stack<T>::pop()
+{
+    this->TopIndex--;
+}
+
+template <class T>
+T Stack<T>::top()
+{
+    return this->arr[TopIndex];
+}
+
+template <class T>
+void Stack<T>::print()
+{
+    for (int i = TopIndex; i >= 0; i--)
+    {
+        cout << this->arr[i] << " ";
+    }
+    cout << endl;
+}

@@ -30,7 +30,12 @@ class Stack
         T top();
         //Lấy giá trị đầu
 
+        void print();
+        //in stack 
+
 };
 
+
+#include "Stack.cpp"
 
 #endif
