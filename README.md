@@ -10,19 +10,15 @@ Dự án được tổ chức thành các thư mục con, mỗi thư mục tươ
 -   `Bai_1.2_Khai_Niem_Thuat_Toan`: Chứa các tài liệu về khái niệm thuật toán.
 -   `Bai_1.3_On_Lai_Kien_Thuc`: Ôn tập các kiến thức C++ cơ bản như Mảng (Array) và Vector.
 -   `Bai_2.0_Linked-list`: Triển khai danh sách liên kết (Singly Linked List, Doubly Linked List).
--   `Bai_3_Thuat_Toan_Tim_Kiem`: Triển khai các thuật toán tìm kiếm:
-    -   Tìm kiếm tuyến tính (Linear Search)
-    -   Tìm kiếm nhị phân (Binary Search)
-    -   Tìm kiếm nội suy (Interpolation Search)
--   `Bai_4_1_Sap_Xep_Co_Ban`: Triển khai các thuật toán sắp xếp cơ bản:
-    -   Sắp xếp nổi bọt (Bubble Sort)
-    -   Sắp xếp chèn (Insertion Sort)
-    -   Sắp xếp chọn (Selection Sort)
-    -   Sắp xếp trộn (Interchange Sort)
-    -   Sắp xếp Cocktail Shaker (Cocktail Shaker Sort)
-    -   Sắp xếp Shell (Shell Sort)
--   `Bai_4_2_Sap_Xep_Nang_Cao`: Triển khai các thuật toán sắp xếp nâng cao:
-    -   Sắp xếp nhanh (Quick Sort)
+-   `Bai_3_Thuat_Toan_Tim_Kiem`: Triển khai các thuật toán tìm kiếm.
+-   `Bai_4_1_Sap_Xep_Co_Ban`: Triển khai các thuật toán sắp xếp cơ bản.
+-   `Bai_4_2_Sap_Xep_Nang_Cao`: Triển khai các thuật toán sắp xếp nâng cao.
+-   `Bai_5_Stack`: Triển khai cấu trúc dữ liệu Stack.
+-   `Bai_6_Hang_doi_(Queue)`: Triển khai cấu trúc dữ liệu Queue.
+-   `Bai_7_Cay_Nhi_Phan`: Triển khai cây nhị phân.
+-   `Bai_9_Heap_Sort`: Triển khai thuật toán Heap Sort.
+-   `Mot_So_Thuat _Toan_Sap_Xep_Khac`: Triển khai các thuật toán sắp xếp khác như Counting Sort và Radix Sort.
+-   `Thuc_Hanh_Wecode`: Chứa các bài thực hành trên Wecode.
 
 ## Cách biên dịch và chạy
 
