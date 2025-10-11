@@ -14,7 +14,6 @@ int LinearSearch(const vector<int> &arr, int target)
         return i;
         }
     }
-
     return -1;
 }
 

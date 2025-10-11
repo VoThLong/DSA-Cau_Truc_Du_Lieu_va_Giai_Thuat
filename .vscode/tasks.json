@@ -3,88 +3,154 @@
     "tasks": [
         {
             "type": "shell",
+            "label": "C/C++: clang++-18 build active file",
+            "command": "/usr/bin/clang++-18",
+            "args": [
+                "-fcolor-diagnostics",
+                "-std=c++20",
+                "-O2",
+                "-g",
+                "-Wall",
+                "-Wextra",
+                "-Wpedantic",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}_clang18"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "Compile active file with clang++-18 (C++20)",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared"
+            }
+        },
+        {
+            "type": "shell",
+            "label": "C/C++: clang++-18 build & run",
+            "command": "/usr/bin/clang++-18",
+            "args": [
+                "-fcolor-diagnostics",
+                "-std=c++20",
+                "-O2",
+                "-g",
+                "-Wall",
+                "-Wextra",
+                "-Wpedantic",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}_clang18",
+                "&&",
+                "${fileDirname}/${fileBasenameNoExtension}_clang18"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "Compile & run with clang++-18 (C++20)",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            }
+        },
+        {
+            "type": "shell",
+            "label": "C/C++: clang++-18 libc++ build active file",
+            "command": "/usr/bin/clang++-18",
+            "args": [
+                "-fcolor-diagnostics",
+                "-g",
+                "-std=c++20",
+                "-stdlib=libc++",
+                "-Wall",
+                "-Wextra",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}_clang18_libcxx"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "Compile active file with clang++-18 using libc++",
+            "presentation": {
+                "echo": true,
+                "reveal": "never",
+                "panel": "shared"
+            }
+        },
+        {
+            "type": "shell",
+            "label": "C/C++: clang++-18 libc++ build & run",
+            "command": "/usr/bin/clang++-18",
+            "args": [
+                "-fcolor-diagnostics",
+                "-g",
+                "-std=c++20",
+                "-stdlib=libc++",
+                "-Wall",
+                "-Wextra",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}_clang18_libcxx",
+                "&&",
+                "${fileDirname}/${fileBasenameNoExtension}_clang18_libcxx"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "Compile & run with clang++-18 using libc++",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            }
+        },
+        {
+            "type": "cppbuild",
             "label": "C/C++: clang++ build active file",
             "command": "/usr/bin/clang++",
             "args": [
                 "-fcolor-diagnostics",
                 "-fansi-escape-codes",
                 "-g",
-                "-std=c++17",
-                "-Wall",
-                "-Wextra",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-Wall",
+                "-Wextra",
+                "-std=c++17"
             ],
             "options": {
                 "cwd": "${fileDirname}"
             },
-            "problemMatcher": ["$gcc"],
+            "problemMatcher": [
+                "$gcc"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Compile and build C++ file with clang++",
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": false,
-                "panel": "shared",
-                "showReuseMessage": true,
-                "clear": false
-            }
-        },
-        {
-            "type": "shell",
-            "label": "C/C++: clang++ build and run",
-            "command": "/usr/bin/clang++",
-            "args": [
-                "-fcolor-diagnostics",
-                "-fansi-escape-codes",
-                "-g",
-                "-std=c++17",
-                "-Wall",
-                "-Wextra",
-                "${file}",
-                "-o",
-                "${fileDirname}/${fileBasenameNoExtension}",
-                "&&",
-                "${fileDirname}/${fileBasenameNoExtension}"
-            ],
-            "options": {
-                "cwd": "${fileDirname}"
-            },
-            "problemMatcher": ["$gcc"],
-            "group": "build",
-            "detail": "Compile with clang++ and run the program",
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": true,
-                "panel": "shared",
-                "showReuseMessage": true,
-                "clear": true
-            }
-        },
-        {
-            "type": "shell",
-            "label": "C/C++: Run C++ file",
-            "command": "${fileDirname}/${fileBasenameNoExtension}",
-            "args": [],
-            "options": {
-                "cwd": "${fileDirname}"
-            },
-            "group": "test",
-            "detail": "Run the compiled C++ program",
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": true,
-                "panel": "shared",
-                "showReuseMessage": true,
-                "clear": true
-            },
-            "dependsOn": "C/C++: clang++ build active file"
+            "detail": "Task generated by Debugger."
         }
     ]
 }
