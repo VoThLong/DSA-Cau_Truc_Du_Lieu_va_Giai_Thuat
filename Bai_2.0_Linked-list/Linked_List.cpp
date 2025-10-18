@@ -182,3 +182,125 @@ void LinkedList::Remove(int pos)
     }
     this->count--;
 }
+
+//Bổ sung ý tưởng
+void LinkedList::SwapOnlyData(int pos1, int pos2)
+{
+    if (pos1 < 0 || pos1 >= this->count || pos2 < 0 || pos2 >= this->count)
+    {
+        cout << "Giá trị vị trí không hợp lệ! \n";
+        return;
+    }
+    if (pos1 == pos2)
+    {
+        return; // Không cần hoán đổi nếu hai vị trí giống nhau
+    }
+
+    Node* node1 = this->pHead;
+    Node* node2 = this->pHead;
+
+    for (int i = 0; i < pos1; i++)
+    {
+        node1 = node1->next;
+    }
+    for (int i = 0; i < pos2; i++)
+    {
+        node2 = node2->next;
+    }
+
+    // Hoán đổi dữ liệu giữa hai nút
+    int temp = node1->data;
+    node1->data = node2->data;
+    node2->data = temp;
+}
+
+void LinkedList::SwapNode(int pos1, int pos2)
+{
+    if (pos1 < 0 || pos1 >= this->count || pos2 < 0 || pos2 >= this->count)
+    {
+        cout << "Giá trị vị trí không hợp lệ! \n";
+        return;
+    }
+    if (pos1 == pos2)
+    {
+        return; // Không cần hoán đổi nếu hai vị trí giống nhau
+    }
+
+    // Đảm bảo pos1 luôn nhỏ hơn pos2 để dễ xử lý
+    if (pos1 > pos2)
+    {
+        std::swap(pos1, pos2);
+    }
+
+    Node* prev1 = nullptr;
+    Node* curr1 = this->pHead;
+    for (int i = 0; i < pos1; i++)
+    {
+        prev1 = curr1;
+        curr1 = curr1->next;
+    }
+
+    Node* prev2 = nullptr;
+    Node* curr2 = this->pHead;
+    for (int i = 0; i < pos2; i++)
+    {
+        prev2 = curr2;
+        curr2 = curr2->next;
+    }
+
+    // Nếu curr1 hoặc curr2 là đầu danh sách
+    if (prev1 != nullptr)
+    {
+        prev1->next = curr2;
+    }
+    else
+    {
+        this->pHead = curr2;
+    }
+
+    if (prev2 != nullptr)
+    {
+        prev2->next = curr1;
+    }
+    else
+    {
+        this->pHead = curr1;
+    }
+
+    // Hoán đổi con trỏ next của curr1 và curr2
+    Node* temp = curr2->next;
+    curr2->next = curr1->next;
+    curr1->next = temp;
+
+    // Cập nhật pTail nếu cần thiết
+    if (curr1->next == nullptr)
+    {
+        this->pTail = curr1;
+    }
+    if (curr2->next == nullptr)
+    {
+        this->pTail = curr2;
+    }
+}
+
+void LinkedList::Combine(LinkedList& otherList)
+{
+    if (this == &otherList)
+    {
+        return; // Tránh kết hợp với chính nó
+    }
+    if (otherList.pHead == nullptr)
+    {
+        return; // Danh sách khác rỗng, không cần kết hợp
+    }
+
+    // Kết hợp danh sách khác vào danh sách hiện tại
+    this->pTail->next = otherList.pHead;
+    this->pTail = otherList.pTail;
+    this->count += otherList.count;
+
+    // Đặt lại danh sách khác
+    otherList.pHead = nullptr;
+    otherList.pTail = nullptr;
+    otherList.count = 0;
+}

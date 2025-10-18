@@ -27,6 +27,12 @@ class LinkedList
         int search(int value) const;
         std::vector<int> SearchAll(int value) const;
         void Remove(int pos);
+
+//Bổ sung ý tưởng
+        void SwapOnlyData(int pos1, int pos2);
+        void SwapNode(int pos1, int pos2);
+        void Combine(LinkedList& otherList);
+        void QuickSortinLinkedList();
 };
 
 #endif
