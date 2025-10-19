@@ -9,6 +9,8 @@
         "*.cpp": "cpp",
         "*.h": "c",
         "*.hpp": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "__node_handle": "cpp"
     }
 }
