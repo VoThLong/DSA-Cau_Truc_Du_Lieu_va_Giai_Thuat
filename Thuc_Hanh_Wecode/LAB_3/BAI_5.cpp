@@ -60,7 +60,7 @@ void quick_sort(vector<int> &arr, int low, int high)
     }
 }
 
-int find_upper_bound(vector<int> &arr, int n, int x)
+int find_lower_bound(vector<int> &arr, int n, int x)
 {
     int left = 0;
     int right = n - 1;
@@ -70,7 +70,7 @@ int find_upper_bound(vector<int> &arr, int n, int x)
     {
         int mid = left + (right - left) / 2;
 
-        if (arr[mid] > x)
+        if (arr[mid] >= x)
         {
             // arr[mid] là một ứng cử viên.
             // Đây có thể là câu trả lời, ta lưu lại
@@ -87,10 +87,9 @@ int find_upper_bound(vector<int> &arr, int n, int x)
             left = mid + 1;
         }
     }
-    
+
     return ans;
 }
-
 
 int main()
 {
@@ -103,12 +102,12 @@ int main()
     input_vector(arr, n);
     vector<int> arr1(q);
     input_vector(arr1, q);
-    
+
     quick_sort(arr, 0, n - 1);
 
     for (int i = 0; i < q; i++)
     {
-        int result = find_upper_bound(arr, n, arr1[i]);
+        int result = find_lower_bound(arr, n, arr1[i]);
         cout << result << "\n";
     }
     return 0;
