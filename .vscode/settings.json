@@ -6,11 +6,17 @@
     "C_Cpp.errorSquiggles": "enabled",
     "C_Cpp.intelliSenseEngine": "default",
     "files.associations": {
+        "*.erd": "json",
+        "*.vuerd": "json",
         "*.cpp": "cpp",
         "*.h": "c",
         "*.hpp": "cpp",
         "iostream": "cpp",
         "ostream": "cpp",
-        "__node_handle": "cpp"
+        "__node_handle": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "regex": "cpp",
+        "__locale": "cpp"
     }
 }
