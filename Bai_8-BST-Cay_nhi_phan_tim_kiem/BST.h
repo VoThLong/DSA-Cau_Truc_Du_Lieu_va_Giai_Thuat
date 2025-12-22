@@ -23,6 +23,7 @@ private:
 public:
     BST();
     void insert(int value);
+    
 
 };
 

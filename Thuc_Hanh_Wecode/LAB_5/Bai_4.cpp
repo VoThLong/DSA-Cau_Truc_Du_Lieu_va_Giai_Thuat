@@ -42,15 +42,27 @@ int main()
     }
 
     int count = 0;
-    for (int i = 0; i < m; i++)
+    dfs(0);
+    vector<int> out;
+    for(int i = 0;  i < m; i++)
     {
-        if(!visited[i])
+        if(visited[i] && i != 0)
         {
-            count++;
-            dfs(i);
+            out.push_back(i);
         }
     }
-    cout << count;
+
+    if(out.empty() == true)
+    {
+        cout << "KHONG";
+    }
+    else
+    {
+        for (int x : out)
+        {
+            cout << x << " ";
+        }
+    }
 
     return 0;
 }
