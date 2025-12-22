@@ -4,9 +4,7 @@ include
 ###End banned keyword*/
 #include <iostream>
 #include <vector>
-#include <map>
-
-
+#include <iomanip>
 
 using namespace std;
 
@@ -31,30 +29,35 @@ TREE CreateTree(vector<int> pre, vector<int> in, int preB, int preE, int inB, in
 	} return root;
 }
 
-void Input(vector<int> &v)
-{
-	int tmp;
-	cin >> tmp;
-	while (tmp > 0) {
-		v.push_back(tmp);
-		cin >> tmp;
-	}
-}
 
-
-int MaxLevel(TREE);
+double AverageByLevel(TREE, int);
 
 int main() {
     vector<int> nlr, lnr;
     int n, key, m, lvl;
 
-    Input(nlr);
-    Input(lnr);
+    cin >> n;
 
+    for (int i = 0; i < n; i++) {
+        cin >> key;
+        nlr.push_back(key);
+    }
+
+    for (int i = 0; i < n; i++) {
+        cin >> key;
+        lnr.push_back(key);
+    }
 
     TREE r = CreateTree(nlr, lnr, 0, nlr.size()-1, 0, lnr.size()-1);
 
-    cout << MaxLevel(r) << endl;
+    cin >> m;
+
+    cout << setprecision(2) << fixed;
+
+    for (int i = 0; i < m; i++) {
+        cin >> lvl;
+        cout << AverageByLevel(r, lvl) << endl;
+    }
 
     return 0;
 }
@@ -62,37 +65,28 @@ int main() {
 	
 //###INSERT CODE HERE -
 
-void DFS(TREE t, int CurrentLevel, map<int, long long> &SumMap)
+void CollectData(TREE t, int Current, int k, double &Sum, int &Count)
 {
-	if(t == NULL) return;
+    if (t == NULL) return;
 
-	SumMap[CurrentLevel] += t->key;
+    if (Current == k) 
+    {
+        Sum += t->key;
+        Count++;
+    }
 
-	DFS(t->left, CurrentLevel + 1, SumMap);
-	DFS(t->right, CurrentLevel + 1, SumMap);
+    CollectData(t->right, Current + 1, k, Sum, Count);
+    CollectData(t->left, Current + 1, k, Sum, Count);
 }
 
-int MaxLevel(TREE t)
+double AverageByLevel(TREE t, int k)
 {
-	if (t == NULL) return;
-	
-	long long maxSum = -1e18;
-	int levelResult = 0;
+    double Sum = 0;
+    int Count = 0;
 
-	map<int, long long> sumMap;
+    CollectData(t, 0, k, Sum, Count);
 
-	DFS(t, 0, sumMap);
-
-	for (auto item : sumMap)
-	{
-		int level = item.first;
-		long long sum = item.second;
-
-		if (sum > maxSum)
-		{
-			maxSum = sum;
-			levelResult = level;
-		}
-	}
-	return levelResult;
+    if (Count == 0) return 0;
+    
+    return Sum / Count;
 }

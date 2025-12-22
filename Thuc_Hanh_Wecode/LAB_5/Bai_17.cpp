@@ -80,6 +80,7 @@ int main()
 int getHeight(TREE t)
 {
     if (t == NULL) return -1;
+    //De quy de truy xuat xuong cap duoi
     int MaxLeft = getHeight(t->left);
     int MaxRight = getHeight(t->right);
     return (MaxLeft > MaxRight ? MaxLeft : MaxRight) + 1;
