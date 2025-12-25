@@ -25,42 +25,32 @@ struct Hashtable {
 };
 
 void CreateHashtable(Hashtable &, int);
-int Search(Hashtable, int, int &);
+int Insert(Hashtable &, Hocsinh);
 void PrintHashtable(Hashtable);
 void DeleteHashtable(Hashtable &);
 
 void Input(Hocsinh &x) {
     cin >> x.Maso;
     getline(cin>>ws, x.Hoten);
-    cin >> x.Gioitinh;
     cin >> x.Namsinh;
+    cin >> x.Gioitinh;
     cin >> x.TBK;
 }
 int main()
 {
     Hashtable hashtable;
 
-    int m, n, k, nprob;
+    int m, n;
     Hocsinh hs;
 
     cin >> m;
     CreateHashtable(hashtable, m);
-    for (int i = 0; i < m; i++) {
-        Input(hs);
-        hashtable.table[i] = hs;
-        if (hs.Maso > 0)
-            hashtable.n++;
-    }
     cin >> n;
     for (int i = 0; i < n; i++) {
-        cin >> k;
-        if (Search(hashtable, k, nprob) >- 1) {
-            cout << "THAM DO " << nprob << endl;
-        }
-        else {
-            cout << "KHONG TIM THAY" << endl;
-        }
+        Input(hs);
+        Insert(hashtable, hs);
     }
+    PrintHashtable(hashtable);
     DeleteHashtable(hashtable);
     return 0;
 }
@@ -85,37 +75,14 @@ void PrintHashtable(Hashtable ht) {
             cout << "[" << hs.Maso <<  ",  " << "  , " << ", " << ", " << "]\n";
     }
 }
-
 void DeleteHashtable(Hashtable &ht) {
     delete [] ht.table;
     ht.table = NULL;
     ht.M = 0;
 }
 
-int Search(Hashtable ht, int maso, int &nprob) {
-    int i = 0;
-    int pos;
-    nprob = -1;
-    
-    while (i < ht.M) {
-        // Tính vị trí theo thăm dò bậc hai:  h(key, i) = ((key % M) + i*i) % M
-        pos = ((maso % ht.M) + i * i) % ht.M;
-        nprob++;  // Tăng số lần thăm dò
-        
-        // Nếu tìm thấy phần tử có mã số cần tìm
-        if (ht.table[pos].Maso == maso) {
-            return pos;  // Trả về chỉ số
-        }
-        
-        // Nếu gặp ô trống (EMPTY) thì phần tử không tồn tại
-        if (ht.table[pos].Maso == EMPTY) {
-            return -1;  // Không tìm thấy
-        }
-        
-        // Nếu là DELETE hoặc khác maso thì tiếp tục thăm dò
-        i++;
-    }
-    
-    // Đã thăm dò hết bảng mà không tìm thấy
-    return -1;
+int Insert(Hashtable &ht, Hocsinh x) {
+
+
+    //###INSERT CODE HERE -
 }
