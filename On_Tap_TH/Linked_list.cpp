@@ -41,14 +41,46 @@ void addHead(LinkedList &List, int value)
         tmp->Next = List.pHead;
         List.pHead = tmp;
     }
+}
 
+void addTail(LinkedList &List, int value)
+{
+    Node *tmp = CreateNode(value);
+
+    if (List.pHead == nullptr && List.pTail == nullptr)
+    {
+        List.pHead = List.pTail = tmp;
+    }
+    else
+    {
+        List.pTail = tmp;
+        tmp->Next = nullptr;
+    }
+}
+
+void printList(LinkedList &List)
+{
+    Node *tmp = List.pHead;
+    do
+    {
+        cout << tmp->Data << ' ';
+        tmp->Next;
+    }
+    while (tmp != List.pTail);
 }
 
 int main()
 {
     LinkedList LL;
     CreateLinkedList(LL);
+    addHead(LL, 4);
+    addHead(LL, 5);
+    addHead(LL, 6);
+    addHead(LL, 7);
+    addHead(LL, 8);
+    printList(LL);
 
+    return 0;
 
 
 }
