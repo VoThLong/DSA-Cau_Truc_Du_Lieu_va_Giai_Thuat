@@ -1,5 +1,5 @@
-#ifndef LinkedList_H
-#define LinkedList_H
+#ifndef Simple_Linked_List_H
+#define Simple_Linked_List_H
 
 class LinkedList
 {
@@ -14,7 +14,10 @@ private:
 public:
     LinkedList();
     ~LinkedList();
+    void addHead(int value);
+    void addTail(int value);
+
     
 
-}
+};
 #endif
