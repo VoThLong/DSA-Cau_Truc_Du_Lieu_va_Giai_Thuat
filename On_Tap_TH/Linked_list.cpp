@@ -61,12 +61,25 @@ void addTail(LinkedList &List, int value)
 void printList(LinkedList &List)
 {
     Node *tmp = List.pHead;
-    do
+    while (tmp != nullptr)
     {
         cout << tmp->Data << ' ';
-        tmp->Next;
+        tmp = tmp->Next;
     }
-    while (tmp != List.pTail);
+}
+
+bool Search(LinkedList &List, int value)
+{
+    Node *crr = List.pHead;
+    while (crr != nullptr)
+    {
+        if (crr->Data == value)
+        {
+            return true;
+            crr = crr->Next;
+        }
+    }
+    return false;
 }
 
 int main()
@@ -79,6 +92,10 @@ int main()
     addHead(LL, 7);
     addHead(LL, 8);
     printList(LL);
+    cout << endl;
+    bool i = Search(LL, 8);
+    if (i != 0) cout << "true\n";
+    else cout << "false\n";
 
     return 0;
 
