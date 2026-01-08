@@ -7,7 +7,7 @@
             "command": "/usr/bin/clang++-18",
             "args": [
                 "-fcolor-diagnostics",
-                "-std=c++20",
+                "-std=c++23",
                 "-O2",
                 "-g",
                 "-Wall",
@@ -24,7 +24,7 @@
                 "$gcc"
             ],
             "group": "build",
-            "detail": "Compile active file with clang++-18 (C++20)",
+            "detail": "Compile active file with clang++-18 (C++23)",
             "presentation": {
                 "echo": true,
                 "reveal": "always",

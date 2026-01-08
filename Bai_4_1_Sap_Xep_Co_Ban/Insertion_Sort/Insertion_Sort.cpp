@@ -36,6 +36,8 @@ void InsertionSort(vector<Object> &arr)
         pos--;
         }
         arr[pos + 1] = x;
+        coutvector(arr);
+        cout << endl;
     }
 }
 

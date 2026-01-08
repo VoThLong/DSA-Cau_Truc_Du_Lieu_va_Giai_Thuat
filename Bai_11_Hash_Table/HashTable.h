@@ -1,14 +1,22 @@
-#ifndef HashTable_H
-#define HashTable_H
+#ifndef HASHTABLE_H
+#define HASHTABLE_H
 
-#include <iostream>
-using namespace std;
+#include <vector>
+#include "Simple_Linked_List.h"
 
-class Hashtable
-{
+class HashTable {
 private:
-    int 
+    int M; // Kích thước bảng
+    std::vector<LinkedList> table;
+
+    int hashFunction(int key);
+
 public:
+    HashTable(int size); // Constructor
+    
+    void insertItem(int key);
+    void deleteItem(int key);
+    void displayHash();
 };
 
-#endif 
+#endif

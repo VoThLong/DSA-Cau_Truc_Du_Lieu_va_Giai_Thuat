@@ -53,8 +53,8 @@ void addTail(LinkedList &List, int value)
     }
     else
     {
+        List.pTail->Next = tmp;
         List.pTail = tmp;
-        tmp->Next = nullptr;
     }
 }
 
@@ -76,10 +76,49 @@ bool Search(LinkedList &List, int value)
         if (crr->Data == value)
         {
             return true;
-            crr = crr->Next;
         }
+        crr = crr->Next;
     }
     return false;
+}
+
+int getsize(LinkedList &List)
+{   
+    int size = 0;
+    Node* crr = List.pHead;
+    while (crr != nullptr)
+    {
+        crr = crr->Next;
+        size++;
+    }
+    return size;
+}
+
+void addPos(LinkedList &List, int value, int index)
+{
+    if (index == 0)
+    {
+        addHead(List, value);
+    }
+    else if (index == getsize(List))
+    {
+        addTail(List, value);
+    }
+
+    if (index > 0 && index < getsize(List) )
+    {
+
+        Node *tmp = CreateNode(value);
+        Node *crr = List.pHead;
+    
+        for (int i = 0; i < index - 1; i++)
+        {
+            crr = crr->Next;
+        }
+        tmp->Next = crr->Next;
+        crr->Next = tmp;
+
+    }
 }
 
 int main()
@@ -91,11 +130,15 @@ int main()
     addHead(LL, 6);
     addHead(LL, 7);
     addHead(LL, 8);
+    addTail(LL, 3);
     printList(LL);
     cout << endl;
-    bool i = Search(LL, 8);
+    bool i = Search(LL, 14);
     if (i != 0) cout << "true\n";
     else cout << "false\n";
+    cout << getsize(LL) << endl;
+    addPos(LL, 10, 4);
+    printList(LL);
 
     return 0;
 
