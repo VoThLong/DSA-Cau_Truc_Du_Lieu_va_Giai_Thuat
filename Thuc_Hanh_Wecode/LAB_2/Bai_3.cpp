@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void PrintVector(const vector<int> &arr, int left, int right)
+void PrintVector (const vector<int> &arr, int left, int right)
 {
     if (left == 0)
     {
